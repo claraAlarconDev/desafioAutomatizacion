@@ -33,23 +33,40 @@ public class ClaseBase {
         return this.driver;
     }
 
+    public WebDriverWait createWait(WebDriver driver, int seg){
+        if(seg <= 0){
+            this.wait = new WebDriverWait(getDriver(), 5);
+        } else {
+            this.wait = new WebDriverWait(getDriver(), seg);
+        }
+        return this.wait;
+    }
+
     public WebElement findWebElement(By locator, int segundos){
        // return getDriver().findElement(locator);
-        this.wait = new WebDriverWait(getDriver(), segundos);
-        return this.wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return createWait(getDriver(), segundos).until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
     public List<WebElement> findWebElements(By locator, int segundos){
         //return getDriver().findElements(locator);
-        this.wait = new WebDriverWait(getDriver(), segundos);
-        return this.wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+        return createWait(getDriver(), segundos).until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
-
+    public void write(WebElement element, String text){
+        element.clear();
+        element.sendKeys(text);
+    }
     public void write(By locator, int seg ,String text){
         element = findWebElement(locator, seg);
         element.clear();
         element.sendKeys(text);
     }
+
+
+    public boolean validateText(By locator, int segundos, String texto){
+        element = findWebElement(locator, (segundos/2));
+        return createWait(getDriver(), (segundos/2)).until(ExpectedConditions.textToBePresentInElement(element, texto));
+    };
+
 
     public boolean validateUrl(String url){
         return (url == getDriver().getCurrentUrl())? true: false;
@@ -64,9 +81,14 @@ public class ClaseBase {
         getDriver().navigate().refresh();
     }
 
+    public void click(WebElement e){
+        e.click();
+    }
     public void click(By locator, int seg){
        findWebElement(locator, seg).click();
     }
+
+
 
     public void navigateForward(){
         getDriver().navigate().forward();
@@ -92,7 +114,7 @@ public class ClaseBase {
             Thread.sleep(milisegundos);
     }
 
-    public WebDriver connectionToDriver( String path, String property, String browser){
+    public WebDriver connectDriver( String path, String property, String browser){
         switch(browser){
             case "chrome":
                 System.setProperty(property, path);
@@ -118,5 +140,10 @@ public class ClaseBase {
 
     public void irAframeByIDorName(String nameOrId){
         getDriver().switchTo().frame(nameOrId);
+    }
+
+
+    public void deleteCookies(){
+        getDriver().manage().deleteAllCookies();
     }
 }
