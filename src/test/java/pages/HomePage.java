@@ -138,12 +138,12 @@ public class HomePage extends ClaseBase {
                 "Traslados"
         };
         int i=0;
-        while(!opciones[i].equalsIgnoreCase(option)){
-            if(opciones[i].equalsIgnoreCase(option)){
-                click(By.xpath("//ul[@class='header-list-products']//descendant::a[@title='"+opciones[i]+"']"), seg);
-            } else {
-                i++;
+        while(!opciones[i].equalsIgnoreCase(option) && i < opciones.length){
+            if(opciones[i] == option){
+                click(By.xpath("//a[@title='"+opciones[i]+"']"), seg);
             }
+                i++;
+
         }
     }
 

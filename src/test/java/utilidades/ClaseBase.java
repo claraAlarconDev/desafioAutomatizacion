@@ -103,7 +103,7 @@ public class ClaseBase {
     }
 
     public void loadPage(String url){
-        getDriver().get(url);
+        this.driver.get(url);
     }
 
     public void addKeysCombination(By locator, Keys key, int seg){

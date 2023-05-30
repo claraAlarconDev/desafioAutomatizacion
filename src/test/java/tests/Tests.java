@@ -26,6 +26,7 @@ public class Tests {
 
     @BeforeSuite
     public void inicioSuiteDePruebas(){
+        System.out.println(System.getProperty("user.dir"));
         System.out.println("Inicio de suite de pruebas automatizadas");
     }
 
@@ -35,7 +36,7 @@ public class Tests {
 
         data = new DataDriven();
 
-        home = new HomePage(this.driver);
+        home = new HomePage(driver);
         home.connectDriver(properties.obtenerProperties("rutaDriver"), properties.obtenerProperties("browserProperty"), properties.obtenerProperties("browser"));
         ofertas = new OfertasPage(home.getDriver());
         paquetes = new PaquetesPage(home.getDriver());
@@ -43,7 +44,8 @@ public class Tests {
 
     @BeforeMethod
     public void preparacionTests(){
-        home.go();
+        //home.loadPage("https://www.despegar.com.ar/");
+        home.navigateTo("https://www.despegar.com.ar/");
         home.maximizeWindow();
     }
 
@@ -73,10 +75,16 @@ public class Tests {
     }
 
     @Test
-    public void TC003_buscarPaquetesForma1() throws IOException {
+    public void TC003_buscarPaquetes() throws IOException {
+        home.selectNoBenefits(0);
+        home.deleteCookies();
         datos = data.obtenerDatosDePrueba("DatosTC", "TC003");
-        home.selectOptNavBar(datos.get(1), 0);
-
+        //home.selectOptNavBar(datos.get(1), 0);
+        //home.click(By.xpath("//a[@title='Ofertas']"), 0);
+        home.click(By.xpath("//a[@title='"+datos.get(1)+"']"), 0);
+        //Assert.assertEquals("https://www.despegar.com.ar/ofertas-de-viajes", home.getDriver().getCurrentUrl());
+        //ofertas.closeLoginIncentiveFrame();
+        ofertas.subscribeWith("Facebook");
     }
 
 
