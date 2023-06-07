@@ -2,12 +2,10 @@ package pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+
 import utilidades.ClaseBase;
 
-import java.security.Key;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class HomePage extends ClaseBase {
 
@@ -30,6 +28,8 @@ public class HomePage extends ClaseBase {
     By noBenefitsBtn = By.xpath("//em[contains(text(), 'No quiero beneficios')]//parent::span[@class='login-incentive--button login-incentive--button-close shifu-3-btn-ghost']");
     By entendiBtnLocator = By.xpath("//div[@class='lgpd-banner']//descendant::em[contains(text(), 'Entend')]//parent::a");
 
+    By fechaIDaT1Loc = By.xpath("//span[text()='Tramo 1']//following-sibling::div//descendant::input[@placeholder='Ida']");
+    By fechaIDaT2Loc = By.xpath("//span[text()='Tramo 2']//following-sibling::div//descendant::input[@placeholder='Ida']");
     //Acciones del page
 
     public void go(){
@@ -100,6 +100,28 @@ public class HomePage extends ClaseBase {
 
     }
 
+    public void writeDestino2() throws InterruptedException {
+        new Actions(getDriver())
+                .sendKeys(findWebElement(destinoInputT1Locator, 0), "Wellington")
+                .click()
+                .pause(20)
+                .sendKeys(Keys.ENTER)
+                .pause(20)
+                .perform();
+    }
+
+    public void selectFechaIda(String tramo, String fecha){
+
+        if(tramo == "Tramo 1"){
+            click(fechaIDaT1Loc, 0);
+        } else if(tramo == "Tramo 2")  {
+            click(fechaIDaT2Loc, 0);
+        }
+    }
+    public void selectFechaVuelta(){
+
+    }
+
     public boolean validateTextoInput(String elemento, String texto, int seg) {
         switch(elemento){
             case "origen t1":
@@ -138,9 +160,11 @@ public class HomePage extends ClaseBase {
                 "Traslados"
         };
         int i=0;
-        while(!opciones[i].equalsIgnoreCase(option) && i < opciones.length){
-            if(opciones[i] == option){
+        boolean success = false;
+        while(!success && i < opciones.length){
+            if(opciones[i].equalsIgnoreCase(option)){
                 click(By.xpath("//a[@title='"+opciones[i]+"']"), seg);
+                success=true;
             }
                 i++;
 

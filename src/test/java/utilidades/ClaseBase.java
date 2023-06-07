@@ -1,21 +1,26 @@
 package utilidades;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class ClaseBase {
     //Atributos
     private WebDriver driver;
     private WebDriverWait wait;
     private WebElement element;
+
+    private JavascriptExecutor js;
+    private File file;
 
     //Constructor
     public ClaseBase() {
@@ -50,6 +55,10 @@ public class ClaseBase {
     public List<WebElement> findWebElements(By locator, int segundos){
         //return getDriver().findElements(locator);
         return createWait(getDriver(), segundos).until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
+    public void takeScreenShot() throws IOException {
+        file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+
     }
     public void write(WebElement element, String text){
         element.clear();
@@ -88,7 +97,13 @@ public class ClaseBase {
        findWebElement(locator, seg).click();
     }
 
+    public boolean isSelected(By locator, int seg){
+       return findWebElement(locator, seg).isSelected();
+    }
 
+    public boolean isDiplayed(By locator, int seg){
+        return findWebElement(locator, seg).isDisplayed();
+    }
 
     public void navigateForward(){
         getDriver().navigate().forward();
@@ -113,6 +128,7 @@ public class ClaseBase {
     public void abruptWaitFor(int milisegundos) throws InterruptedException{
             Thread.sleep(milisegundos);
     }
+
 
     public WebDriver connectDriver( String path, String property, String browser){
         switch(browser){
@@ -142,8 +158,32 @@ public class ClaseBase {
         getDriver().switchTo().frame(nameOrId);
     }
 
+    public void scrollToElement(By locator){
+        WebElement element = findWebElement(locator, 0);
+        new Actions(getDriver())
+                .moveToElement(element)
+                .perform();
+    }
+
+    public void scroll(int x, int y){
+       this.js = (JavascriptExecutor) getDriver();
+        this.js.executeScript("window.scroll("+x+","+y+")");
+        /*new Actions(getDriver())
+                .moveByOffset(x,y)
+                .perform();*/
+
+    }
+
+    public void switchToTab(int i){
+        ArrayList<String> allTabs = new ArrayList<>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(allTabs.get(i));
+    }
 
     public void deleteCookies(){
         getDriver().manage().deleteAllCookies();
+    }
+
+    public boolean elementExists(By locator, int seg){
+        return (findWebElement(locator, seg)!=null) ? true : false;
     }
 }

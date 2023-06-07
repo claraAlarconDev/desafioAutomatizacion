@@ -1,13 +1,16 @@
 package tests;
 
 import org.openqa.selenium.*;
+
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.OfertasPage;
 import pages.PaquetesPage;
+import pages.VuelosPage;
 import utilidades.DataDriven;
 import utilidades.PropertiesDriven;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +22,7 @@ public class Tests {
     private HomePage home;
     private OfertasPage ofertas;
     private PaquetesPage paquetes;
+    private VuelosPage vuelos;
 
     private DataDriven data;
 
@@ -33,40 +37,36 @@ public class Tests {
     @BeforeClass
     public void preparacionClase(){
         PropertiesDriven properties = new PropertiesDriven();
-
         data = new DataDriven();
-
         home = new HomePage(driver);
         home.connectDriver(properties.obtenerProperties("rutaDriver"), properties.obtenerProperties("browserProperty"), properties.obtenerProperties("browser"));
         ofertas = new OfertasPage(home.getDriver());
         paquetes = new PaquetesPage(home.getDriver());
+        vuelos = new VuelosPage(home.getDriver());
     }
 
     @BeforeMethod
     public void preparacionTests(){
-        //home.loadPage("https://www.despegar.com.ar/");
-        home.navigateTo("https://www.despegar.com.ar/");
+        home.go();
         home.maximizeWindow();
+        home.selectNoBenefits(0);
+        home.deleteCookies();
     }
 
 
     @Test
     public void TC001_pruebaCompletarForm() throws IOException {
         datos = data.obtenerDatosDePrueba("DatosTC", "TC001");
-        home.selectNoBenefits(0);
-        home.deleteCookies();
         home.selectFlightOption(datos.get(1), 0);
         home.writeOrigen(datos.get(5), datos.get(7),0);
         home.writeDestino(datos.get(6), datos.get(7), 0);
+        home.selectFechaIda("Tramo 1", "2");
 
     }
 
     @Test
     public void TC002_validarTextosAlertDelForm() throws IOException {
         datos = data.obtenerDatosDePrueba("DatosTC", "TC002");
-        //home.selectNoBenefits(0);
-        //home.deleteCookies();
-        //home.refreshPage();
         home.selectFlightOption(datos.get(1), 0);
         home.writeOrigen(datos.get(5), datos.get(7),0);
         home.click(By.xpath(datos.get(10)), 0);
@@ -75,19 +75,62 @@ public class Tests {
     }
 
     @Test
-    public void TC003_buscarPaquetes() throws IOException {
-        home.selectNoBenefits(0);
-        home.deleteCookies();
+    public void TC003_buscarOfertasForma1() throws IOException, InterruptedException {
         datos = data.obtenerDatosDePrueba("DatosTC", "TC003");
-        //home.selectOptNavBar(datos.get(1), 0);
-        //home.click(By.xpath("//a[@title='Ofertas']"), 0);
-        home.click(By.xpath("//a[@title='"+datos.get(1)+"']"), 0);
-        //Assert.assertEquals("https://www.despegar.com.ar/ofertas-de-viajes", home.getDriver().getCurrentUrl());
-        //ofertas.closeLoginIncentiveFrame();
-        ofertas.subscribeWith("Facebook");
+        home.selectOptNavBar(datos.get(1), 0);
+        ofertas.closeLoginIncentiveFrame();
+        ofertas.selectMes(datos.get(2));
+        ofertas.abruptWaitFor(5000);
+        ofertas.selectDestino(datos.get(3));
+        ofertas.abruptWaitFor(5000);
+        ofertas.selectFlightOffer(datos.get(4));
+        vuelos.switchToTab(Integer.parseInt(datos.get(5)));
+        vuelos.scroll(0, 500);
+        vuelos.clickSiguiente();
+        vuelos.addAdultos(Integer.parseInt(datos.get(6)));
+        vuelos.restarAdultos(Integer.parseInt(datos.get(7)));
+        vuelos.continuar();
+        vuelos.abruptWaitFor(6000);
+        vuelos.scroll(0, 500);
+        vuelos.abruptWaitFor(5000);
+        //vuelos.buy(0, 0);
+        //System.out.println("url: " + vuelos.getDriver().getCurrentUrl());
+        //System.out.println("title" + vuelos.getDriver().getTitle());
+        Assert.assertEquals(datos.get(8), vuelos.getDriver().getTitle());
     }
 
+    @Test
+    public void TC004_buscarOfertasNoHayResultados() throws IOException, InterruptedException {
+        datos = data.obtenerDatosDePrueba("DatosTC", "TC004");
+        home.selectOptNavBar(datos.get(1), 0);
+        ofertas.closeLoginIncentiveFrame();
+        ofertas.selectMes(datos.get(2));
+        ofertas.abruptWaitFor(5000);
+        ofertas.selectDestino(datos.get(3));
+        ofertas.abruptWaitFor(5000);
+        Assert.assertTrue(ofertas.notFoundFlight(5));
+    }
 
+    @Test
+    public void TC005_ingresarSesionFacebook() throws InterruptedException {
+        home.selectFlightOption("Solo ida", 0);
+       home.writeDestino2();
+    }
+
+    @Test
+    public void  TC006_ingresarSesionGoogle(){
+
+    }
+
+    @Test
+    public void TC007_eligeTuEntradaDisney(){
+
+    }
+
+    @Test
+    public void TC008_(){
+
+    }
 
     @AfterMethod
 

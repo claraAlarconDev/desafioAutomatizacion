@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0c7ce6-f2ce-405e-a4f3-59a83970428c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/CheckoutPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/DisneyPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/FacebookLoginPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/VuelosPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/OfertasPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OfertasPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/Tests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/utilidades/ClaseBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilidades/ClaseBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/Setup.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Setup.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/datos/data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/datos/data.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,33 +54,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\clara.alarcon\OneDrive - TSOFT\Escritorio\DesafioAutomatizacion\TrabajoPOM_alarcon\" />
+      <recent name="C:\Users\clara.alarcon\OneDrive - TSOFT\Escritorio\DesafioAutomatizacion\TrabajoPOM_alarcon\src\test\" />
+      <recent name="C:\Users\clara.alarcon\OneDrive - TSOFT\Escritorio\DesafioAutomatizacion\TrabajoPOM_alarcon\src\test\java\tests" />
       <recent name="C:\Users\clara.alarcon\OneDrive - TSOFT\Escritorio\DesafioAutomatizacion\TrabajoPOM_alarcon\src\test\resources" />
       <recent name="C:\Users\clara.alarcon\OneDrive - TSOFT\Escritorio\DesafioAutomatizacion\DesafioAcademiaAutomatizacion\src\test\resources\drivers" />
-      <recent name="C:\Users\clara.alarcon\OneDrive - TSOFT\Escritorio\DesafioAutomatizacion\DesafioAcademiaAutomatizacion\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Tests.TC003_buscarPaquetes">
-    <configuration name="C:/Users/clara.alarcon/OneDrive - TSOFT/Escritorio/DesafioAutomatizacion/TrabajoPOM_alarcon/src/test/java/TestNG.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TrabajoPOM_alarcon" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/TestNG.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="C:/Users/clara.alarcon/OneDrive - TSOFT/Escritorio/DesafioAutomatizacion/TrabajoPOM_alarcon/src/test/java/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TrabajoPOM_alarcon" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/java/testng.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.Tests.TC001_pruebaCompletarForm">
+    <configuration name="Tests.TC001_pruebaCompletarForm" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TrabajoPOM_alarcon" />
       <extension name="coverage">
         <pattern>
@@ -87,24 +72,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.Tests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests.TC003_buscarPaquetes" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="TrabajoPOM_alarcon" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.Tests" />
-      <option name="METHOD_NAME" value="TC003_buscarPaquetes" />
+      <option name="METHOD_NAME" value="TC001_pruebaCompletarForm" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -112,7 +80,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.TC003_buscarPaquetesForma1" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.TC003_buscarOfertasForma1" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="TrabajoPOM_alarcon" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +90,61 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.Tests" />
-      <option name="METHOD_NAME" value="TC003_buscarPaquetesForma1" />
+      <option name="METHOD_NAME" value="TC003_buscarOfertasForma1" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.TC004_buscarOfertasForma2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TrabajoPOM_alarcon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.Tests" />
+      <option name="METHOD_NAME" value="TC004_buscarOfertasForma2" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.TC004_buscarOfertasNoHayResultados" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TrabajoPOM_alarcon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.Tests" />
+      <option name="METHOD_NAME" value="TC004_buscarOfertasNoHayResultados" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.TC005_ingresarSesionFacebook" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="TrabajoPOM_alarcon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.Tests" />
+      <option name="METHOD_NAME" value="TC005_ingresarSesionFacebook" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -132,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.Tests.TC003_buscarPaquetes" />
-        <item itemvalue="TestNG.Tests.TC003_buscarPaquetesForma1" />
-        <item itemvalue="TestNG.Tests" />
-        <item itemvalue="TestNG.C:/Users/clara.alarcon/OneDrive - TSOFT/Escritorio/DesafioAutomatizacion/TrabajoPOM_alarcon/src/test/java/testng.xml" />
-        <item itemvalue="TestNG.C:/Users/clara.alarcon/OneDrive - TSOFT/Escritorio/DesafioAutomatizacion/TrabajoPOM_alarcon/src/test/java/TestNG.xml" />
+        <item itemvalue="TestNG.Tests.TC001_pruebaCompletarForm" />
+        <item itemvalue="TestNG.Tests.TC005_ingresarSesionFacebook" />
+        <item itemvalue="TestNG.Tests.TC004_buscarOfertasNoHayResultados" />
+        <item itemvalue="TestNG.Tests.TC003_buscarOfertasForma1" />
+        <item itemvalue="TestNG.Tests.TC004_buscarOfertasForma2" />
       </list>
     </recent_temporary>
   </component>
@@ -165,26 +187,35 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/tests/Tests.java</url>
-          <line>33</line>
-          <properties class="tests.Tests" method="preparacionClase">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/utilidades/DataDriven.java</url>
           <line>69</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/tests/Tests.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="28" />
+          <line>115</line>
+          <properties class="tests.Tests" method="TC005_ingresarSesionFacebook">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/Tests.java</url>
+          <line>58</line>
+          <properties class="tests.Tests" method="TC001_pruebaCompletarForm">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TrabajoPOM_alarcon$Tests_TC005_ingresarSesionFacebook.ic" NAME="Tests.TC005_ingresarSesionFacebook Coverage Results" MODIFIED="1685999830394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>tests.*</FILTER>
+    </SUITE>
   </component>
 </project>
