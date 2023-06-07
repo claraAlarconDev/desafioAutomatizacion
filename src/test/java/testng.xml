@@ -3,7 +3,7 @@
 <suite name="Suite pruebas de regresion">
     <test name="Test curso automatizacion">
         <classes>
-            <class name="tests.Tests"/>
+            <class name= "tests.Tests"/>
         </classes>
     </test> <!-- Test -->
 

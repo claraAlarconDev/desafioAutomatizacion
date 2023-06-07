@@ -59,8 +59,9 @@ public class Tests {
         home.selectFlightOption(datos.get(1), 0);
         home.writeOrigen(datos.get(5), datos.get(7),0);
         home.writeDestino(datos.get(6), datos.get(7), 0);
-        home.selectFechaIda("Tramo 1", "2");
-
+        home.scroll(0,200);
+        home.selectFecha("Tramo 1","Ida","24", "2023", "08");
+        //home.selectFecha("Tramo 1", "Vuelta", "28", "2023", "08");
     }
 
     @Test
@@ -92,9 +93,6 @@ public class Tests {
         vuelos.abruptWaitFor(6000);
         vuelos.scroll(0, 500);
         vuelos.abruptWaitFor(5000);
-        //vuelos.buy(0, 0);
-        //System.out.println("url: " + vuelos.getDriver().getCurrentUrl());
-        //System.out.println("title" + vuelos.getDriver().getTitle());
         Assert.assertEquals(datos.get(8), vuelos.getDriver().getTitle());
     }
 

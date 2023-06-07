@@ -30,6 +30,8 @@ public class HomePage extends ClaseBase {
 
     By fechaIDaT1Loc = By.xpath("//span[text()='Tramo 1']//following-sibling::div//descendant::input[@placeholder='Ida']");
     By fechaIDaT2Loc = By.xpath("//span[text()='Tramo 2']//following-sibling::div//descendant::input[@placeholder='Ida']");
+    By fechaVueltaT1Loc = By.xpath("//span[text()='Tramo 1']//following-sibling::div//descendant::input[@placeholder='Vuelta']");
+    By fechaVueltaT2Loc = By.xpath("//span[text()='Tramo 2']//following-sibling::div//descendant::input[@placeholder='Vuelta']");
     //Acciones del page
 
     public void go(){
@@ -42,29 +44,7 @@ public class HomePage extends ClaseBase {
 
     public void selectFlightOption(String option, int seg) {
         String[] tipoVuelos = {"ida y vuelta", "Solo ida", "Multidestino", "Vuelo + Alojamiento"};
-       /* switch(option){
-            case "Ida y vuelta":
-                click(idaYVueltaBTNLocator, seg);
-                break;
-            case "Solo ida":
-                click(soloIdaBTNLocator, seg);
-                break;
-            case "Multidestino":
-                click(multidestinoBTNLocator,seg);
-                break;
-            case "Vuelo + Alojamiento":
-                click(vueloPlusAlojLocator,seg);
-                break;
-        }*/
-       /* if(option == "Ida y vuelta"){
-            click(idaYVueltaBTNLocator, seg);
-        } else if(option == "Solo ida"){
-            click(soloIdaBTNLocator, seg);
-        } else if(option == "Multidestino"){
-            click(multidestinoBTNLocator,seg);
-        } else if(option == "Vuelo + Alojamiento"){
-            click(vueloPlusAlojLocator,seg);
-        }*/
+
         String element = "";
         int i = 0;
         while (element != option && i < tipoVuelos.length) {
@@ -110,16 +90,35 @@ public class HomePage extends ClaseBase {
                 .perform();
     }
 
-    public void selectFechaIda(String tramo, String fecha){
-
-        if(tramo == "Tramo 1"){
-            click(fechaIDaT1Loc, 0);
-        } else if(tramo == "Tramo 2")  {
-            click(fechaIDaT2Loc, 0);
+    public void selectFecha(String tramo, String tipoFecha,String dia, String año, String mes){
+        String añoMes = año.concat("-").concat(mes);
+        int mesNum = Integer.parseInt(mes);
+        switch (tipoFecha) {
+            case "Ida":
+                if (tramo == "Tramo 1") {
+                    click(fechaIDaT1Loc, 0);
+                } else if (tramo == "Tramo 2") {
+                    click(fechaIDaT2Loc, 0);
+                }
+                break;
+            case "Vuelta":
+                if (tramo == "Tramo 1") {
+                    click(fechaVueltaT1Loc, 0);
+                } else if (tramo == "Tramo 2") {
+                    click(fechaVueltaT2Loc, 0);
+                }
+                break;
         }
-    }
-    public void selectFechaVuelta(){
 
+
+        if (mesNum > 07) {
+            WebElement arrow = findWebElements(By.xpath("//a[@class='calendar-arrow-right']"), 0).get(0);
+            for (int i = 0; i < (mesNum-7) ; i++) {
+                arrow.click();
+            }
+        }
+        By dateLoc = By.xpath("//div[@data-month='"+añoMes+"']//descendant::div[@class='sbox5-monthgrid-datenumber-number' and text()='"+dia+"']//parent::div[starts-with(@class, 'sbox5-monthgrid-datenumber')]");
+        findWebElements(dateLoc, 0).get(0).click();
     }
 
     public boolean validateTextoInput(String elemento, String texto, int seg) {
