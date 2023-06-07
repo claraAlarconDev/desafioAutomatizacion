@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0c7ce6-f2ce-405e-a4f3-59a83970428c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/CheckoutPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/DisneyPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/FacebookLoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/VuelosPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/OfertasPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/OfertasPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/Tests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/utilidades/ClaseBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilidades/ClaseBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/datos/data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/datos/data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utilidades/DataDriven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilidades/DataDriven.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +26,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2PhJ81VDWsApS7OWP1EimMu6XRA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -194,7 +190,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/tests/Tests.java</url>
-          <line>115</line>
+          <line>113</line>
           <properties class="tests.Tests" method="TC005_ingresarSesionFacebook">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -203,7 +199,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/tests/Tests.java</url>
-          <line>58</line>
+          <line>56</line>
           <properties class="tests.Tests" method="TC001_pruebaCompletarForm">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

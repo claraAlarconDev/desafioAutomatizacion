@@ -1,7 +1,7 @@
 package tests;
 
-import org.openqa.selenium.*;
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
@@ -10,7 +10,6 @@ import pages.PaquetesPage;
 import pages.VuelosPage;
 import utilidades.DataDriven;
 import utilidades.PropertiesDriven;
-
 
 import java.io.IOException;
 import java.util.List;
