@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cf0c7ce6-f2ce-405e-a4f3-59a83970428c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utilidades/ClaseBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utilidades/ClaseBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/tests/Tests.java</url>
-          <line>178</line>
+          <line>216</line>
           <properties class="tests.Tests" method="TC007_eligeTuEntradaDisney">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
