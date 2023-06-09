@@ -56,10 +56,7 @@ public class ClaseBase {
         //return getDriver().findElements(locator);
         return createWait(getDriver(), segundos).until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
-    public void takeScreenShot() throws IOException {
-        file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 
-    }
     public void write(WebElement element, String text){
         element.clear();
         element.sendKeys(text);

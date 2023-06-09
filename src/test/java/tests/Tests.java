@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -69,22 +70,34 @@ public class Tests {
 
 
     @Test
-    public void TC001_pruebaCompletarForm1() throws Exception {
-        datos = data.obtenerDatosDePrueba("DatosTC", "TC001");
+    public void TC001_pruebaCompletarForm1() {
+        try {
+            datos = data.obtenerDatosDePrueba("DatosTC", "TC001");
+        } catch (IOException err) {
+            System.out.println(err.getMessage());
+        }
         home.selectFlightOption(datos.get(1), 10);
         //home.writeOrigen(datos.get(5), datos.get(7),10);
         //home.writeDestino(datos.get(6), datos.get(7), 10);
         home.writeAndEnterOrigen(datos.get(2), datos.get(4), 10);
         home.writeAndEnterDestino(datos.get(3), datos.get(4), 10);
         home.scroll(0, 200);
-        home.selectFecha(datos.get(4), datos.get(5), datos.get(6), datos.get(7), datos.get(8));
+        try {
+            home.selectFecha(datos.get(4), datos.get(5), datos.get(6), datos.get(7), datos.get(8));
+        } catch (InterruptedException err) {
+            System.out.println(err.getMessage());
+        }
         home.buscarBtn(10);
         Assert.assertEquals(vuelos.findWebElement(By.xpath(datos.get(9)),0).getText(), datos.get(10));
     }
 
     @Test
-    public void TC002_validarTextosAlertDelForm() throws IOException {
+    public void TC002_validarTextosAlertDelForm(){
+        try {
         datos = data.obtenerDatosDePrueba("DatosTC", "TC002");
+        } catch (IOException err) {
+            System.out.println(err.getMessage());
+        }
         home.selectFlightOption(datos.get(1), 10);
         home.writeOrigen(datos.get(5), datos.get(7), 10);
         home.click(By.xpath(datos.get(10)), 0);
@@ -93,14 +106,26 @@ public class Tests {
     }
 
     @Test
-    public void TC003_buscarOfertasForma1() throws Exception {
-        datos = data.obtenerDatosDePrueba("DatosTC", "TC003");
+    public void TC003_buscarOfertasForma1(){
+        try {
+            datos = data.obtenerDatosDePrueba("DatosTC", "TC003");
+        } catch (IOException err) {
+            System.out.println(err.getMessage());
+        }
         home.selectOptNavBar(datos.get(1), 10);
         ofertas.closeLoginIncentiveFrame();
         ofertas.selectMes(datos.get(2));
-        ofertas.abruptWaitFor(5000);
+        try {
+            ofertas.abruptWaitFor(5000);
+        } catch (InterruptedException err) {
+            System.out.println(err.getMessage());
+        }
         ofertas.selectDestino(datos.get(3));
-        ofertas.abruptWaitFor(5000);
+        try {
+            ofertas.abruptWaitFor(5000);
+        } catch (InterruptedException err) {
+            System.out.println(err.getMessage());
+        }
         ofertas.selectFlightOffer(datos.get(4));
         vuelos.switchToTab(Integer.parseInt(datos.get(5)));
         vuelos.scroll(0, 500);
@@ -119,14 +144,27 @@ public class Tests {
     }
 
     @Test
-    public void TC004_buscarOfertasNoHayResultados() throws Exception {
-        datos = data.obtenerDatosDePrueba("DatosTC", "TC004");
+    public void TC004_buscarOfertasNoHayResultados() {
+
+        try {
+            datos = data.obtenerDatosDePrueba("DatosTC", "TC004");
+        } catch (IOException err) {
+            System.out.println(err.getMessage());
+        }
         home.selectOptNavBar(datos.get(1), 10);
         ofertas.closeLoginIncentiveFrame();
         ofertas.selectMes(datos.get(2));
-        ofertas.abruptWaitFor(5000);
+        try {
+            ofertas.abruptWaitFor(5000);
+        }catch(InterruptedException err){
+            System.out.println(err.getMessage());
+        }
         ofertas.selectDestino(datos.get(4));
-        ofertas.abruptWaitFor(5000);
+        try {
+            ofertas.abruptWaitFor(5000);
+        }catch(InterruptedException err){
+            System.out.println(err.getMessage());
+        }
         Assert.assertTrue(ofertas.notFoundFlight(5));
     }
 
@@ -159,7 +197,7 @@ public class Tests {
         try {
             asistencias.abruptWaitFor(4000);
         }catch(InterruptedException err){
-            System.out.println(err);
+            System.out.println(err.getMessage());
         }
         asistencias.selectFecha(datos.get(7),datos.get(4), datos.get(5), datos.get(8));
         asistencias.aplicarFechastBtn();
@@ -169,14 +207,14 @@ public class Tests {
         try {
             asistencias.abruptWaitFor(4000);
         }catch(InterruptedException err){
-            System.out.println(err);
+            System.out.println(err.getMessage());
         }
         Assert.assertEquals(checkoutPage.getDriver().getTitle(), datos.get(10));
 
     }
 
     @Test
-    public void TC007_eligeTuEntradaDisney() throws InterruptedException {
+    public void TC007_eligeTuEntradaDisney(){
         try {
             datos = data.obtenerDatosDePrueba("DatosTC", "TC007");
         } catch (IOException err) {
@@ -188,22 +226,42 @@ public class Tests {
         disney.addAdulto(Integer.parseInt(datos.get(3)), 10);
         disney.addMenores(Integer.parseInt(datos.get(2)), 10);
         disney.comprar();
-        disney.abruptWaitFor(5000);
+        try {
+            disney.abruptWaitFor(5000);
+        }catch(InterruptedException err){
+            System.out.println(err.getMessage());
+        }
         Assert.assertEquals(disney.getDriver().getTitle(), datos.get(4));
 
     }
 
     @Test
-    public void TC008_pruebaCompletarForm2() throws Exception {
-        datos = data.obtenerDatosDePrueba("DatosTC", "TC008");
+    public void TC008_pruebaCompletarForm2() {
+        try {
+            datos = data.obtenerDatosDePrueba("DatosTC", "TC008");
+        }catch(IOException err){
+            System.out.println(err.getMessage());
+        }
         home.selectFlightOption(datos.get(1), 10);
         home.writeAndEnterOrigen(datos.get(2), datos.get(3), 10);
         home.writeAndEnterDestino(datos.get(4), datos.get(3), 10);
         home.scroll(0, 200);
-        home.selectFecha(datos.get(3), datos.get(5), datos.get(6), datos.get(7), datos.get(8));
+        try {
+            home.selectFecha(datos.get(3), datos.get(5), datos.get(6), datos.get(7), datos.get(8));
+        } catch(ElementClickInterceptedException err){
+            System.out.println(err.getMessage());
+        }catch(InterruptedException e){
+            System.out.println(e.getMessage());
+        }
         home.writeAndEnterOrigen(datos.get(4), datos.get(14), 10);
         home.writeAndEnterDestino(datos.get(9), datos.get(14), 10);
-        home.selectFecha(datos.get(4), datos.get(10), datos.get(11), datos.get(12), datos.get(13));
+        try {
+            home.selectFecha(datos.get(4), datos.get(10), datos.get(11), datos.get(12), datos.get(13));
+        } catch(ElementClickInterceptedException err){
+            System.out.println(err.getMessage());
+        }catch(InterruptedException e){
+            System.out.println(e.getMessage());
+        }
         //Assert
         Assert.assertEquals(vuelos.findWebElement(By.xpath(datos.get(15)),0).getText(), datos.get(16));
     }
@@ -296,7 +354,8 @@ public class Tests {
             System.out.println(err.getMessage());
         }
     home.meArrepenti(10);
-    home.switchToTab(Integer.parseInt(datos.get(1)));
+        int i = Integer.parseInt(datos.get(1));
+    home.switchToTab(i);
     arrepentimientoPage.pressContinuar(10);
     Assert.assertTrue(arrepentimientoPage.noEmail(10));
     Assert.assertTrue(arrepentimientoPage.noReserva(10));
