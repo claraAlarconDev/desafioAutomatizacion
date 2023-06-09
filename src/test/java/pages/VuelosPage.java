@@ -23,6 +23,7 @@ public class VuelosPage extends ClaseBase {
 
     By noBenefitsBtn = By.xpath("//em[contains(text(), 'No quiero beneficios')]//parent::span[@class='login-aggressive--button login-aggressive--button-close shifu-3-btn-ghost']");
     By continuarBtn = By.xpath("//a//child::em[@class='btn-text' and contains(text(),'Continuar')]");
+    By btnContinuarEquiaje = By.xpath("//button//child::em[@class='btn-text' and contains(text(),'Continuar')]");
     By buyBtnLoc = By.xpath("//buy-button");
 
     Actions action = new Actions(getDriver());
@@ -61,9 +62,6 @@ public class VuelosPage extends ClaseBase {
     }
 
     public void addAdultos(int num){
-        //for (int i = 0; i < num; i++) {
-          //  click(addAdultoLoc, 0);
-        //}
         for (int i = 0; i < num; i++) {
             action.click(findWebElement(addAdultoLoc, 0))
                     .pause(2)
@@ -95,5 +93,9 @@ public class VuelosPage extends ClaseBase {
     public void buy(int i, int seg){
         ArrayList<WebElement> buyBtns = new ArrayList<>(findWebElements(buyBtnLoc, seg));
         buyBtns.get(i).click();
+    }
+
+    public void sumaEquipajeContinuar(int seg){
+        click(btnContinuarEquiaje, seg);
     }
 }

@@ -77,7 +77,8 @@ public class AsistenciasPage extends ClaseBase {
             }
         }
 
-            click(By.xpath("//div[@data-month='" + mesAño + "']//descendant::div[text()='" + dia + "']//parent::div[starts-with(@class,'sbox5-monthgrid-datenumber ')]"), 0);
+            //click(By.xpath("//div[@data-month='" + mesAño + "']//descendant::div[text()='" + dia + "']//parent::div[starts-with(@class,'sbox5-monthgrid-datenumber ')]"), 0);
+        click(By.xpath("//div[@data-month='" + mesAño + "']//descendant::div[text()='" + dia + "']"), 0);
     }
 
     public void aplicarFechastBtn(){

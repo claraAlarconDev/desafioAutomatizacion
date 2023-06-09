@@ -32,6 +32,8 @@ public class HomePage extends ClaseBase {
     By fechaIDaT2Loc = By.xpath("//span[text()='Tramo 2']//following-sibling::div//descendant::input[@placeholder='Ida']");
     By fechaVueltaT1Loc = By.xpath("//span[text()='Tramo 1']//following-sibling::div//descendant::input[@placeholder='Vuelta']");
     By fechaVueltaT2Loc = By.xpath("//span[text()='Tramo 2']//following-sibling::div//descendant::input[@placeholder='Vuelta']");
+    By btnArrepentimiento = By.xpath("//a[@href='https://www.despegar.com.ar/aftersale/cancel/arrepentimiento']");
+    By buscarBtn = By.xpath("//em[text()='Buscar']//ancestor::button");
     //Acciones del page
 
     public void go(){
@@ -82,9 +84,9 @@ public class HomePage extends ClaseBase {
 
     public void writeAndEnterDestino(String destino, String tramo, int seg) {
         WebElement element = null;
-        if(destino == "Tramo 1"){
+        if(tramo.equalsIgnoreCase("Tramo 1")){
             element = findWebElement(destinoInputT1Locator, seg);
-        } else if(destino ==  "Tramo 2"){
+        } else if(tramo.equalsIgnoreCase("Tramo 2")){
             element = findWebElement(destinoInputT2Locator, seg);
         }
         new Actions(getDriver())
@@ -98,9 +100,9 @@ public class HomePage extends ClaseBase {
 
     public void writeAndEnterOrigen(String origen, String tramo, int seg){
         WebElement element = null;
-        if(origen == "Tramo 1"){
+        if(tramo.equalsIgnoreCase("Tramo 1")){
             element = findWebElement(origenInputT1Locator, seg);
-        } else if(origen ==  "Tramo 2"){
+        } else if(tramo.equalsIgnoreCase("Tramo 2")){
             element = findWebElement(origenInputT2Locator, seg);
         }
         new Actions(getDriver())
@@ -116,16 +118,16 @@ public class HomePage extends ClaseBase {
         int mesNum = Integer.parseInt(mes);
         switch (tipoFecha) {
             case "Ida":
-                if (tramo == "Tramo 1") {
+                if (tramo.equalsIgnoreCase("Tramo 1")) {
                     click(fechaIDaT1Loc, 0);
-                } else if (tramo == "Tramo 2") {
+                } else if (tramo.equalsIgnoreCase("Tramo 2")) {
                     click(fechaIDaT2Loc, 0);
                 }
                 break;
             case "Vuelta":
-                if (tramo == "Tramo 1") {
+                if (tramo.equalsIgnoreCase("Tramo 1")) {
                     click(fechaVueltaT1Loc, 0);
-                } else if (tramo == "Tramo 2") {
+                } else if (tramo.equalsIgnoreCase("Tramo 2")) {
                     click(fechaVueltaT2Loc, 0);
                 }
                 break;
@@ -190,6 +192,14 @@ public class HomePage extends ClaseBase {
                 i++;
 
         }
+    }
+
+    public void meArrepenti(int seg){
+        click(btnArrepentimiento, seg);
+    }
+
+    public void buscarBtn(int seg){
+        click(buscarBtn, seg);
     }
 
 }

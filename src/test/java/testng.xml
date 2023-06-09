@@ -9,6 +9,14 @@
                 <include name="TC002_validarTextosAlertDelForm"/>
                 <include name="TC003_buscarOfertasForma1"/>
                 <include name="TC004_buscarOfertasNoHayResultados"/>
+                <include name="TC005_ingresarSesionFacebook"/>
+                <include name="TC006_ComprarAsistencia"/>
+                <include name="TC007_eligeTuEntradaDisney"/>
+                <include name="TC008_pruebaCompletarForm2"/>
+                <include name="TC009_ComprarAsistenciaYCheckout"/>
+                <include name="TC010_elegirEscapada"/>
+                <include name="TC011_botonDeArrepentimientoExito"/>
+                <include name="TC012_botonArrepentimientoAlert"/>
             </methods>
             </class>
         </classes>
