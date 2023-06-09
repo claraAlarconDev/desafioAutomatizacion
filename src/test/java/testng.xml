@@ -3,7 +3,14 @@
 <suite name="Suite pruebas de regresion">
     <test name="Test curso automatizacion">
         <classes>
-            <class name= "tests.Tests"/>
+            <class name= "tests.Tests">
+            <methods>
+                <include name="TC001_pruebaCompletarForm1"/>
+                <include name="TC002_validarTextosAlertDelForm"/>
+                <include name="TC003_buscarOfertasForma1"/>
+                <include name="TC004_buscarOfertasNoHayResultados"/>
+            </methods>
+            </class>
         </classes>
     </test> <!-- Test -->
 

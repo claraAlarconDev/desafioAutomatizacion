@@ -80,9 +80,15 @@ public class HomePage extends ClaseBase {
 
     }
 
-    public void writeDestino2() throws InterruptedException {
+    public void writeAndEnterDestino(String destino, String tramo, int seg) {
+        WebElement element = null;
+        if(destino == "Tramo 1"){
+            element = findWebElement(destinoInputT1Locator, seg);
+        } else if(destino ==  "Tramo 2"){
+            element = findWebElement(destinoInputT2Locator, seg);
+        }
         new Actions(getDriver())
-                .sendKeys(findWebElement(destinoInputT1Locator, 0), "Wellington")
+                .sendKeys(element, destino)
                 .click()
                 .pause(20)
                 .sendKeys(Keys.ENTER)
@@ -90,7 +96,22 @@ public class HomePage extends ClaseBase {
                 .perform();
     }
 
-    public void selectFecha(String tramo, String tipoFecha,String dia, String año, String mes){
+    public void writeAndEnterOrigen(String origen, String tramo, int seg){
+        WebElement element = null;
+        if(origen == "Tramo 1"){
+            element = findWebElement(origenInputT1Locator, seg);
+        } else if(origen ==  "Tramo 2"){
+            element = findWebElement(origenInputT2Locator, seg);
+        }
+        new Actions(getDriver())
+                .sendKeys(element, origen)
+                .click()
+                .pause(20)
+                .sendKeys(Keys.ENTER)
+                .pause(20)
+                .perform();
+    }
+    public void selectFecha(String tramo, String tipoFecha,String dia, String año, String mes) throws InterruptedException {
         String añoMes = año.concat("-").concat(mes);
         int mesNum = Integer.parseInt(mes);
         switch (tipoFecha) {
@@ -115,6 +136,7 @@ public class HomePage extends ClaseBase {
             WebElement arrow = findWebElements(By.xpath("//a[@class='calendar-arrow-right']"), 0).get(0);
             for (int i = 0; i < (mesNum-7) ; i++) {
                 arrow.click();
+                abruptWaitFor(2000);
             }
         }
         By dateLoc = By.xpath("//div[@data-month='"+añoMes+"']//descendant::div[@class='sbox5-monthgrid-datenumber-number' and text()='"+dia+"']//parent::div[starts-with(@class, 'sbox5-monthgrid-datenumber')]");
